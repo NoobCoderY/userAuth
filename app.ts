@@ -30,8 +30,6 @@ app.use(cookieParser())
 
 
 //**********************************REST API Routes**********************************/
-  
-
 
  app.use("/auth",todoRouter)
 

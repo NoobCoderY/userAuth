@@ -5,7 +5,6 @@ import { dbConnection } from "./config/dbConnection";
 dbConnection()
 
 
-
 app.listen(process.env.PORT, () => {
     return console.log(`Express is listening at http://localhost:${process.env.PORT}}`);
   });

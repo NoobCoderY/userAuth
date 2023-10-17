@@ -8,6 +8,7 @@ import {
 } from "../utils/JwtToken";
 import Jwt from "jsonwebtoken";
 import { UserType } from "../model/userModel";
+
 //**********************************Create User*********************************/
 
 export const UserCreate = async (
