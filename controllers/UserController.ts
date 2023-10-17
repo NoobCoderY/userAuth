@@ -25,6 +25,11 @@ export const UserCreate = async (
         return next(new ErrorHandler("please send password", 400));
       }
     }
+
+    const userExistCheck = await User.findOne({ name });
+    if (userExistCheck) {
+      return next(new ErrorHandler("user already exist", 400));
+    }
     const user = await User.create({
       name,
       password,

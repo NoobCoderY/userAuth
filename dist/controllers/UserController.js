@@ -29,6 +29,10 @@ const UserCreate = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
                 return next(new errorHandler_1.default("please send password", 400));
             }
         }
+        const userExistCheck = yield userModel_1.default.findOne({ name });
+        if (userExistCheck) {
+            return next(new errorHandler_1.default("user already exist", 400));
+        }
         const user = yield userModel_1.default.create({
             name,
             password,
@@ -82,9 +86,9 @@ const Refresh = (req, res, next) => __awaiter(void 0, void 0, void 0, function* 
             return next(new errorHandler_1.default(err, 403));
         }
         console.log(user);
-        const refreshTokenToken = (0, JwtToken_1.generateRefreshToken)(user);
+        const refreshToken = (0, JwtToken_1.generateRefreshToken)(user);
         const accessToken = (0, JwtToken_1.generateAccessToken)(user);
-        res.status(200).json({ refreshTokenToken, accessToken });
+        res.status(200).json({ refreshToken, accessToken });
     });
 });
 exports.Refresh = Refresh;
