@@ -2,7 +2,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import { error } from "./middleware/errorMiddleWare";
-import todoRouter from "./router/userRouter"
+import userRouter from "./router/userRouter"
 import cookieParser from "cookie-parser"
 import cors from "cors";
 
@@ -31,7 +31,7 @@ app.use(cookieParser())
 
 //**********************************REST API Routes**********************************/
 
- app.use("/auth",todoRouter)
+ app.use("/auth",userRouter )
 
  //**********************************error middleware**********************************/
 
