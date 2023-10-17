@@ -93,9 +93,9 @@ export const Refresh = async (
     }
    console.log(user);
    
-    const refreshTokenToken = generateRefreshToken(user as UserType);
+    const refreshToken = generateRefreshToken(user as UserType);
     const accessToken = generateAccessToken(user as UserType);
-    res.status(200).json({ refreshTokenToken, accessToken });
+    res.status(200).json({ refreshToken, accessToken });
   });
 };
 
